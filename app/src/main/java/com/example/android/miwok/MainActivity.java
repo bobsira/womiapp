@@ -20,4 +20,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    // sample activity to test
+
 }
