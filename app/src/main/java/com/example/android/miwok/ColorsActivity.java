@@ -17,6 +17,19 @@ public class ColorsActivity extends AppCompatActivity {
      */
     private MediaPlayer mMediaPlayer;
 
+    /**
+     * +     * This listener gets triggered when the {@link MediaPlayer} has completed
+     * +     * playing the audio file.
+     * +
+     */
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            // Now that the sound file has finished playing, release the media player resources.
+            releaseMediaPlayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +78,9 @@ public class ColorsActivity extends AppCompatActivity {
                 // Start the audio file
                 mMediaPlayer.start();
             }
-    });
-}
+        });
+    }
+
     /**
      * Clean up the media player by releasing its resources.
      */
