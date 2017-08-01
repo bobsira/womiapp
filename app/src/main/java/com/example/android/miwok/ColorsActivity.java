@@ -18,9 +18,8 @@ public class ColorsActivity extends AppCompatActivity {
     private MediaPlayer mMediaPlayer;
 
     /**
-     * +     * This listener gets triggered when the {@link MediaPlayer} has completed
-     * +     * playing the audio file.
-     * +
+     * * This listener gets triggered when the {@link MediaPlayer} has completed
+     * * playing the audio file.
      */
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -66,6 +65,9 @@ public class ColorsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // Release the media player if it currently exists because we are about to
+                // play a different sound file
+                releaseMediaPlayer();
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(position);
 
